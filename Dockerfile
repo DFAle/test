@@ -14,6 +14,7 @@ RUN npm run build --prod
 
 #segundo paso
 
-FROM nginx:1.17.10-alpine
+FROM Debian:11
 
-COPY --from=build-step /app/dist/Angular/ /usr/share/nginx/html
+COPY --from=build-step /app/dist/Angular/ /var/www/html/
+CMD ["debian", "-g", "daemon off;"]
