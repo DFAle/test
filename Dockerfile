@@ -4,7 +4,7 @@ RUN mkdir -p /app
 
 WORkDIR /app 
 
-copy package.json /app
+COPY package.json /app
 
 RUN npm install 
 
@@ -16,5 +16,6 @@ RUN npm run build --prod
 
 FROM debian:11
 
-COPY --from=build-step /app/dist/test/ /var/www/html/
+COPY --from=build-step /app/dist/angular/ /var/www/html
+
 CMD ["debian", "-g", "daemon off;"]
