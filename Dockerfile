@@ -16,5 +16,5 @@ RUN npm run build --prod
 
 FROM debian:11
 
-COPY --from=build-step /app/dist/angular/ /var/www/html/
+COPY --from=build-step /app/dist/test/ /var/www/html/
 CMD ["debian", "-g", "daemon off;"]
